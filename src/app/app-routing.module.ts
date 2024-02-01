@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MyFormComponent } from './my-form/my-form.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: '/my-form', pathMatch: 'full'  },
+  { path: 'my-form', component: MyFormComponent }
+];  
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule { 
+}
