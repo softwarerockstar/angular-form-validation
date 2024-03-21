@@ -1,0 +1,19 @@
+hello there!
+<div *ngIf="showFaxInput">
+    <form [formGroup]="faxForm">
+      <label for="faxInput">Fax Number:</label>
+      <input type="text" id="faxInput" formControlName="faxInput">
+      <div *ngIf="faxForm.get('faxInput').hasError('required') && faxForm.get('faxInput').touched">
+        Fax number is required.
+      </div>
+      <div *ngIf="faxForm.get('faxInput').hasError('pattern') && faxForm.get('faxInput').touched">
+        Please enter a valid 10-digit fax number.
+      </div>
+      <button (click)="sendFax()">Send Fax</button>
+    </form>
+  </div>
+  
+  <div *ngIf="!showFaxInput">
+    <p>Your request has been received. Fax number: {{ faxNumber }}</p>
+  </div>
+  
